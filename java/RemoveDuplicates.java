@@ -20,7 +20,7 @@ class Solution
 	}
 }
 
-public class Easy_Remove_Duplicates
+public class RemoveDuplicates
 {
 	public static void main(String[] args)
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Solution
 {
-	public int RomanToInteger(string s)
+	public int RomanToInteger(string str)
 	{
 		int integer = 0;
 		Dictionary<char, int> numerals = new Dictionary<char, int>();
@@ -16,17 +16,17 @@ public class Solution
 		numerals.Add('D', 500);
 		numerals.Add('M', 1000);
 
-		for(int i = 0; i < s.Length; i++)
+		for(int i = 0; i < str.Length; i++)
 		{
-			if(i + 1 >= s.Length)
+			if(i + 1 >= str.Length)
 			{
-				integer += numerals[s[i]];
+				integer += numerals[str[i]];
 			}
 
-			if(i + 1 < s.Length)
+			if(i + 1 < str.Length)
 			{
-				if(numerals[s[i]] >= numerals[s[i + 1]]) integer += numerals[s[i]];
-				if(numerals[s[i]] < numerals[s[i + 1]]) {integer += numerals[s[i + 1]] - numerals[s[i]]; i++;}
+				if(numerals[str[i]] >= numerals[str[i + 1]]) integer += numerals[str[i]];
+				if(numerals[str[i]] < numerals[str[i + 1]]) {integer += numerals[str[i + 1]] - numerals[str[i]]; i++;}
 			}
 		}
 
@@ -38,19 +38,19 @@ public class LeetCode
 {
 	public static void Main()
 	{
-		string s1 = "IV";
-		string s2 = "IX";
-		string s3 = "III";
-		string s4 = "LVIII";
-		string s5 = "MMCXVI";
-		string s6 = "MCMXCIV";
+		string string1 = "IV";
+		string string2 = "IX";
+		string string3 = "III";
+		string string4 = "LVIII";
+		string string5 = "MMCXVI";
+		string string6 = "MCMXCIV";
 		Solution solution = new Solution();
 
-		Console.WriteLine(solution.RomanToInteger(s1));
-		Console.WriteLine(solution.RomanToInteger(s2));
-		Console.WriteLine(solution.RomanToInteger(s3));
-		Console.WriteLine(solution.RomanToInteger(s4));
-		Console.WriteLine(solution.RomanToInteger(s5));
-		Console.WriteLine(solution.RomanToInteger(s6));
+		Console.WriteLine(solution.RomanToInteger(string1));
+		Console.WriteLine(solution.RomanToInteger(string2));
+		Console.WriteLine(solution.RomanToInteger(string3));
+		Console.WriteLine(solution.RomanToInteger(string4));
+		Console.WriteLine(solution.RomanToInteger(string5));
+		Console.WriteLine(solution.RomanToInteger(string6));
 	}
 }

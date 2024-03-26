@@ -2,31 +2,31 @@ import java.util.*;
 
 class Solution
 {
-	public boolean ValidParentheses(String s)
+	public boolean ValidParentheses(String str)
 	{
-		if(s.length() % 2 != 0) return false;
+		if(str.length() % 2 != 0) return false;
 
 		Stack<Character> stk = new Stack<Character>();
 
-		for(char c : s.toCharArray())
+		for(char character : str.toCharArray())
 		{
-			if(c == '(' || c == '[' || c == '{') stk.push(c);
+			if(character == '(' || character == '[' || character == '{') stk.push(character);
 
 			if(stk.size() == 0)
 			{
-				if(c == ')' || c == ']' || c == '}') return false;
+				if(character == ')' || character == ']' || character == '}') return false;
 			}
 
 			if(stk.size() != 0)
 			{
-				if(c == ')' && stk.peek() == '(') stk.pop();
-				else if(c == ')' && stk.peek() != '(') return false;
+				if(character == ')' && stk.peek() == '(') stk.pop();
+				else if(character == ')' && stk.peek() != '(') return false;
 
-				if(c == ']' && stk.peek() == '[') stk.pop();
-				else if(c == ']' && stk.peek() != '[') return false;
+				if(character == ']' && stk.peek() == '[') stk.pop();
+				else if(character == ']' && stk.peek() != '[') return false;
 
-				if(c == '}' && stk.peek() == '{') stk.pop();
-				else if(c == '}' && stk.peek() != '{') return false;
+				if(character == '}' && stk.peek() == '{') stk.pop();
+				else if(character == '}' && stk.peek() != '{') return false;
 			}
 		}
 
@@ -34,12 +34,12 @@ class Solution
 	}
 }
 
-public class Easy_Valid_Parentheses
+public class ValidParentheses
 {
 	public static void main(String[] args)
 	{
-		String s = "([{}])";
+		String str = "([{}])";
 		Solution solution = new Solution();
-		System.out.println(solution.ValidParentheses(s));
+		System.out.println(solution.ValidParentheses(str));
 	}
 }

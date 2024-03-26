@@ -1,29 +1,29 @@
 class Solution
 {
-	public boolean IsPalindrome(String s)
+	public boolean Palindrome(String str)
 	{
-		int l = 0;
-		int r = s.length() - 1;
+		int left = 0;
+		int right = str.length() - 1;
 
-		while(l < r)
+		while(left < right)
 		{
-			while(l < r && !Character.isLetterOrDigit(s.charAt(l))) l++;
-			while(l < r && !Character.isLetterOrDigit(s.charAt(r))) r--;
-			if(Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) return false;
-			if(l < r) l++;
-			if(l < r) r--;
+			while(left < right && !Character.isLetterOrDigit(str.charAt(left))) left++;
+			while(left < right && !Character.isLetterOrDigit(str.charAt(right))) right--;
+			if(Character.toLowerCase(str.charAt(left)) != Character.toLowerCase(str.charAt(right))) return false;
+			if(left < right) left++;
+			if(left < right) right--;
 		}
 
 		return true;
 	}
 }
 
-public class Easy_Is_Palindrome
+public class Palindrome
 {
 	public static void main(String[] args)
 	{
-		String s = "a #a c -bbc, a:  a ";
+		String str = "a #a c -bbc, a:  a ";
 		Solution solution = new Solution();
-		System.out.println(solution.IsPalindrome(s));
+		System.out.println(solution.Palindrome(str));
 	}
 }

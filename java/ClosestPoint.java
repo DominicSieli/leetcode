@@ -38,7 +38,7 @@ class Algorithm
 	}
 }
 
-class Easy_Closest_Point
+class ClosestPoint
 {
 	public static void main(String[] args)
 	{

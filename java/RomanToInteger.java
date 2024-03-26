@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution
 {
-	public int RomanToInteger(String s)
+	public int RomanToInteger(String str)
 	{
 		int integer = 0;
 		Map<Character, Integer> numerals = new HashMap<Character, Integer>();
@@ -15,17 +15,17 @@ class Solution
 		numerals.put('D', 500);
 		numerals.put('M', 1000);
 
-	    for(int i = 0; i < s.length(); i++)
+		for(int i = 0; i < str.length(); i++)
 		{
-			if(i + 1 >= s.length())
+			if(i + 1 >= str.length())
 			{
-				integer += numerals.get(s.charAt(i));
+				integer += numerals.get(str.charAt(i));
 			}
 
-			if(i + 1 < s.length())
+			if(i + 1 < str.length())
 			{
-				if(numerals.get(s.charAt(i)) >= numerals.get(s.charAt(i + 1))) integer += numerals.get(s.charAt(i));
-				if(numerals.get(s.charAt(i)) < numerals.get(s.charAt(i + 1))) {integer += numerals.get(s.charAt(i + 1)) - numerals.get(s.charAt(i)); i++;}
+				if(numerals.get(str.charAt(i)) >= numerals.get(str.charAt(i + 1))) integer += numerals.get(str.charAt(i));
+				if(numerals.get(str.charAt(i)) < numerals.get(str.charAt(i + 1))) {integer += numerals.get(str.charAt(i + 1)) - numerals.get(str.charAt(i)); i++;}
 			}
 		}
 
@@ -33,23 +33,23 @@ class Solution
 	}
 }
 
-public class Easy_Roman_To_Integer
+public class RomanToInteger
 {
 	public static void main(String[] args)
 	{
-		String s1 = "IV";
-		String s2 = "IX";
-		String s3 = "III";
-		String s4 = "LVIII";
-		String s5 = "MMCXVI";
-		String s6 = "MCMXCIV";
+		String string1 = "IV";
+		String string2 = "IX";
+		String string3 = "III";
+		String string4 = "LVIII";
+		String string5 = "MMCXVI";
+		String string6 = "MCMXCIV";
 		Solution solution = new Solution();
 
-		System.out.println(solution.RomanToInteger(s1));
-		System.out.println(solution.RomanToInteger(s2));
-		System.out.println(solution.RomanToInteger(s3));
-		System.out.println(solution.RomanToInteger(s4));
-		System.out.println(solution.RomanToInteger(s5));
-		System.out.println(solution.RomanToInteger(s6));
+		System.out.println(solution.RomanToInteger(string1));
+		System.out.println(solution.RomanToInteger(string2));
+		System.out.println(solution.RomanToInteger(string3));
+		System.out.println(solution.RomanToInteger(string4));
+		System.out.println(solution.RomanToInteger(string5));
+		System.out.println(solution.RomanToInteger(string6));
 	}
 }

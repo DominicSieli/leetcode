@@ -4,13 +4,13 @@ class Solution
 	{
 		int i = strings[0].length();
 
-		for(int s = 0; s < strings.length - 1; s++)
+		for(int str = 0; str < strings.length - 1; str++)
 		{
-			for(int c = 0; c < i; c++)
+			for(int character = 0; character < i; character++)
 			{
-				if(c >= strings[s].length()) {i = strings[s].length(); break;}
-				if(c >= strings[s+1].length()) {i = strings[s+1].length(); break;}
-				if(strings[s].charAt(c) != strings[s+1].charAt(c)) i = c;
+				if(character >= strings[str].length()) {i = strings[str].length(); break;}
+				if(character >= strings[str+1].length()) {i = strings[str+1].length(); break;}
+				if(strings[str].charAt(character) != strings[str+1].charAt(character)) i = character;
 			}
 		}
 
@@ -18,7 +18,7 @@ class Solution
 	}
 }
 
-public class Easy_Longest_Common_Prefix
+public class LongestCommonPrefix
 {
 	public static void main(String[] args)
 	{

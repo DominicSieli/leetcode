@@ -2,18 +2,18 @@ using System;
 
 public class Solution
 {
-	public bool IsIntergerPalindrome(int x)
+	public bool IntergerPalindrome(int integer)
 	{
-		int n = 0;
-		if(x < 0) return false;
-		if(x > 0) n = (int)Math.Log10(x);
+		int exponent = 0;
+		if(integer < 0) return false;
+		if(integer > 0) exponent = (int)Math.Log10(integer);
 
-		while(x != 0)
+		while(integer != 0)
 		{
-			if(x % 10 != (int)(x / (int)Math.Pow(10, n))) return false;
-			x = x % (int)Math.Pow(10, n);
-			x = (int)(x / 10);
-			n -= 2;
+			if(integer % 10 != (int)(integer / (int)Math.Pow(10, exponent))) return false;
+			integer = integer % (int)Math.Pow(10, exponent);
+			integer = (int)(integer / 10);
+			exponent -= 2;
 		}
 
 		return true;
@@ -25,6 +25,6 @@ public class LeetCode
 	public static void Main()
 	{
 		Solution solution = new Solution();
-		Console.WriteLine(solution.IsIntergerPalindrome(121));
+		Console.WriteLine(solution.IntergerPalindrome(121));
 	}
 }

@@ -1,16 +1,28 @@
 using System;
 
+class Point
+{
+	public int x = 0;
+	public int y = 0;
+
+	public Point(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+}
+
 class Calculate
 {
-	public static double Distance(int x, int y)
+	public static double Distance(Point point)
 	{
-		return x * x + y * y;
+		return Math.Sqrt(Math.Pow(Math.Abs(point.x), 2) + Math.Pow(Math.Abs(point.y), 2));
 	}
 }
 
 class Solution
 {
-	public static void Sort(int[][] array)
+	public static void Sort(Point[] array)
 	{
 		int minIndex = 0;
 
@@ -20,33 +32,31 @@ class Solution
 
 			for(int j = i + 1; j < array.GetLength(0); j++)
 			{
-				if(Calculate.Distance(array[j][0], array[j][1]) < Calculate.Distance(array[minIndex][0], array[minIndex][1])) minIndex = j;
+				if(Calculate.Distance(array[j]) < Calculate.Distance(array[minIndex])) minIndex = j;
 			}
 
-			int a0 = array[i][0];
-			int a1 = array[i][1];
-			int b0 = array[minIndex][0];
-			int b1 = array[minIndex][1];
+			int a0 = array[i].x;
+			int a1 = array[i].y;
+			int b0 = array[minIndex].x;
+			int b1 = array[minIndex].y;
 
-			array[i][0] = b0;
-			array[i][1] = b1;
-			array[minIndex][0] = a0;
-			array[minIndex][1] = a1;
+			array[i].x = b0;
+			array[i].y = b1;
+			array[minIndex].x = a0;
+			array[minIndex].y = a1;
 		}
 	}
 
-	public static int[][] ClosestPoints(int[][] points, int k)
+	public static Point[] ClosestPoints(Point[] points, int k)
 	{
 		if(points.Length == 0) return points;
-		int[][] closest = new int[k][];
+		Point[] closest = new Point[k];
 
 		Sort(points);
 
 		for(int i = 0; i < k; i++)
 		{
-			closest[i] = new int[2];
-			closest[i][0] = points[i][0];
-			closest[i][1] = points[i][1];
+			closest[i] = new Point(points[i].x, points[i].y);
 		}
 
 		return closest;
@@ -59,20 +69,23 @@ class LeetCode
 	{
 		int k = 4;
 		int size = 10;
-		int[][] points = new int[size][];
+		Point[] points = new Point[size];
+		points[0] = new Point(0,0);
+		points[1] = new Point(1,1);
+		points[2] = new Point(2,2);
+		points[3] = new Point(3,3);
+		points[4] = new Point(4,4);
+		points[5] = new Point(5,5);
+		points[6] = new Point(6,6);
+		points[7] = new Point(7,7);
+		points[8] = new Point(8,8);
+		points[9] = new Point(9,9);
 
-		for(int i = 0; i < size; i++)
-		{
-			points[i] = new int[2];
-			points[i][0] = size - i - 1;
-			points[i][1] = size - i - 1;
-		}
-
-		int[][] closest = Solution.ClosestPoints(points, k);
+		Point[] closest = Solution.ClosestPoints(points, k);
 
 		for(int i = 0; i < k; i++)
 		{
-			Console.WriteLine("[{0},{1}] : {2}", closest[i][0], closest[i][1], Calculate.Distance(closest[i][0],closest[i][1]));
+			Console.WriteLine("[{0},{1}] : {2}", closest[i].x, closest[i].y, Calculate.Distance(closest[i]));
 		}
 	}
 }

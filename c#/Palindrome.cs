@@ -2,18 +2,18 @@ using System;
 
 public class Solution
 {
-	public bool IsPalindrome(string s)
+	public bool Palindrome(string str)
 	{
-		int l = 0;
-		int r = s.Length - 1;
+		int left = 0;
+		int right = str.Length - 1;
 
-		while(l < r)
+		while(left < right)
 		{
-			while(l < r && !Char.IsLetterOrDigit(s[l])) l++;
-			while(l < r && !Char.IsLetterOrDigit(s[r])) r--;
-			if(Char.ToLower(s[l]) != Char.ToLower(s[r])) return false;
-			if(l < r) l++;
-			if(l < r) r--;
+			while(left < right && !Char.IsLetterOrDigit(str[left])) left++;
+			while(left < right && !Char.IsLetterOrDigit(str[right])) right--;
+			if(Char.ToLower(str[left]) != Char.ToLower(str[right])) return false;
+			if(left < right) left++;
+			if(left < right) right--;
 		}
 
 		return true;
@@ -24,8 +24,8 @@ public class LeetCode
 {
 	public static void Main()
 	{
-		string s = "a #a c -bbc, a:  a ";
+		string str = "a #a c -bbc, a:  a ";
 		Solution solution = new Solution();
-		Console.WriteLine(solution.IsPalindrome(s));
+		Console.WriteLine(solution.Palindrome(str));
 	}
 }

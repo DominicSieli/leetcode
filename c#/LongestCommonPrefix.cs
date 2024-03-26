@@ -6,13 +6,13 @@ public class Solution
 	{
 		int i = strings[0].Length;
 
-		for(int s = 0; s < strings.Length - 1; s++)
+		for(int str = 0; str < strings.Length - 1; str++)
 		{
-			for(int c = 0; c < i; c++)
+			for(int character = 0; character < i; character++)
 			{
-				if(c >= strings[s].Length) {i = strings[s].Length; break;}
-				if(c >= strings[s+1].Length) {i = strings[s+1].Length; break;}
-				if(strings[s][c] != strings[s+1][c]) i = c;
+				if(character >= strings[str].Length) {i = strings[str].Length; break;}
+				if(character >= strings[str+1].Length) {i = strings[str+1].Length; break;}
+				if(strings[str][character] != strings[str+1][character]) i = character;
 			}
 		}
 
